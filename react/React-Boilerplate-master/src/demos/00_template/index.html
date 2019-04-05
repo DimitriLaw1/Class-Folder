@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React - Template</title>
+    <script src="../../js/react.min.js"></script>
+    <script src="../../js/react-dom.min.js"></script>
+    <script src="../../js/browser.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css"> 
+</head>
+<body>
+
+    <div id="dion"> </div>
+    
+
+    <script type="text/babel">
+        var Popcorn = React.createClass({
+            render: function() {
+                return (
+                    <div id = "blah">
+                    <h2>{this.props.title}</h2>
+                    <h3> {this.props.action} </h3>
+                    <p> compontent </p>
+                    
+                    </div>
+                    );
+            }
+        });
+        ReactDOM.render(
+            <div className="menu">
+
+            <Popcorn title="avatar" genre="action"/>
+            <Popcorn title="avengers" genre="action" />
+            <Popcorn title="handler" genre="action" />
+            <Popcorn title="handler" genre="action" />
+
+            </div>
+            , 
+             document.getElementById('dion'));
+
+
+             
+    </script>
+
+
+</body>
+
+
+
+<!--
+<div id="container"></div>
+
+    <script type="text/babel">
+        var Popcorn = React.createClass({
+            render: function() {
+                return (
+                    <div>
+                    <h2>This is a simple component</h2>
+                    <h3> second component </h3>
+                    
+                    </div>
+                    );
+            }
+        });
+        ReactDOM.render(<Popcorn />, document.getElementById('container'));
+    </script>
+
+</script>
+
+----------------------------------
+
+ <div id="container"></div>
+
+    <script type="text/babel">
+        ReactDOM.render(
+            
+            <h2>Welcome to React!!!</h2>,
+
+            
+            document.getElementById('container') // where this code wil be displayed
+        );
+    </script>
+
+
+-->
+</html>
+
