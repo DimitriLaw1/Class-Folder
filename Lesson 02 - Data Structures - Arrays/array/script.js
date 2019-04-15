@@ -1,7 +1,7 @@
 //Start with the following code template. After each step, run the program and see how the output changes.
 
 
-
+/*
 function createFunction(){
     var a = "Hans Zmmer Rules!";
     inception = function(){
@@ -12,7 +12,7 @@ function createFunction(){
 var inception;
 createFunction();
 inception();
-
+*/
 
 
 

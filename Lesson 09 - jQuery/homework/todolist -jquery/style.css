@@ -1,0 +1,12 @@
+.strike {
+    text-decoration: line-through;
+  }
+
+  .redbg{
+      background-color: red;
+      height:200px;
+  }
+
+  li{
+      cursor: pointer;
+  }

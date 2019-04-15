@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="jquery-3.3.1.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="redbg">
+    <h1>JQuery To-Do List</h1>
+  <form id="form-add-todo" class="form-add-todo">
+    <label for="todo">To do:</label>
+    <input type="text" id="new-todo-item" class="new-todo-item" name="todo" />
+    <input type="submit" id="add-todo-item" class="add-todo-item" value="add " />
+  </form>
+  
+  <form id="form-todo-list">
+    <ul id="todo-list" class="todo-list">
+        <li class="strike"> Wash the dog</li>
+        <li> Make the Mac n Cheese</li>
+    </ul>
+  </form>
+
+</div>
+</body>
+
+
+<script>
+function addTodoItem() {
+  var todoItem = $("#new-todo-item").val();
+  $("#todo-list").append("<li><input type='checkbox'" + 
+     " name='todo-item-done'" + 
+      " class='todo-item-done'"+ 
+" value='" + todoItem + "' /> " + 
+todoItem +
+" <button class='todo-item-delete'>"+
+"Delete</button></li>");
+  
+ $("#new-todo-item").val("");
+}
+
+function deleteTodoItem(e, item) {
+  e.preventDefault();
+  $(item).parent().fadeOut('slow', function() { 
+    $(item).parent().remove();
+  });
+}
+
+                           
+function completeTodoItem() {  
+  $(this).parent().toggleClass("strike");
+}
+
+
+$(function() {
+ 
+   $("#add-todo-item").on('click', function(e){
+     e.preventDefault();
+     addTodoItem()
+   });
+  
+//EVENT DELEGATION
+//#todo-list is the event handler because .todo-item-delete doesn't exist when the document loads, it is generated later by a todo entry
+//https://learn.jquery.com/events/event-delegation/
+  $("#todo-list").on('click', '.todo-item-delete', function(e){
+    var item = this; 
+    deleteTodoItem(e, item)
+  })
+  
+  $(document).on('click', ".todo-item-done", completeTodoItem)
+
+});
+</script>
+</html>
